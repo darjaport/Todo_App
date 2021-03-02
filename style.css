@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-weight: 400;
+  line-height: 1.6;
+  font-family: "Comfortaa", cursive;
+  font-weight: 600;
+
+  color: #ccc;
+}
+
+.container {
+  background-color: #fff;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  min-width: 30rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+}
+
+.container__items > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* //////////////////////////////////////////////////////////// */
+/* NUMBER OF TASKS */
+.container__tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks {
+  border: 0.5rem solid #2cbf96;
+  border-radius: 50rem;
+  height: 10rem;
+  width: 10rem;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks .number-of-tasks {
+  font-size: 5rem;
+}
+
+.tasks h1 {
+  font-size: 0.9rem;
+  padding: 0 0.5rem;
+}
+
+/* //////////////////////////////////////////////////////////// */
+/* FORM */
+.todo__form {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.todo__form-input {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  background-color: #eee;
+  color: #555;
+  border: none;
+
+  padding: 0.7rem 1.6rem;
+  border-radius: 50rem;
+  width: 90%;
+  transition: all 0.2s;
+  margin-right: -3.25rem; /* btn inside label */
+}
+
+.todo__form-input:hover {
+  background-color: #e0e0e0;
+}
+
+.todo__form-input:focus {
+  outline: none;
+  /*         width: 100%; */
+  background-color: #e0e0e0;
+}
+
+.todo__form-input:focus + .todo__form-btn,
+.todo__form-input:hover + .todo__form-btn {
+  background-color: #e0e0e0;
+  color: #555;
+}
+
+input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: #aaa;
+}
+
+/* BUTTON */
+
+.todo__form-btn {
+  background-color: #eee;
+  border: none;
+  color: inherit;
+  line-height: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 2.3rem;
+  margin-right: 2rem;
+}
+
+.todo__form-btn:focus {
+  outline: none;
+}
+
+.todo__form-btn:hover {
+  color: #333;
+}
+
+/* //////////////////////////////////////////////////////////// */
+/* TODO TASKS */
+
+.todo__output ul {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo__output ul li {
+  display: flex;
+  width: 85%;
+
+  color: #555;
+  padding: 0.7rem 1.6rem;
+  border-bottom: 0.3rem solid #eee;
+  transition: all 0.2s;
+  overflow: hidden;
+}
+
+.todo__output ul li:not(:last-child) {
+  margin-bottom: 0.8rem;
+}
+
+.todo__output ul li span {
+  margin-left: auto;
+  display: flex;
+  transform: translateX(10rem);
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.todo__output ul li .finish {
+  margin-right: 2rem;
+  color: #2cbf96;
+}
+
+.todo__output ul li .trash {
+  color: #f54a1c;
+}
+
+.todo__output ul li .trash,
+.todo__output ul li .finish {
+  transition: all 0.2s;
+}
+
+.todo__output ul li .trash:hover,
+.todo__output ul li .finish:hover {
+  transform: scale(1.7);
+  cursor: pointer;
+}
+
+.todo__output ul li:hover {
+  width: 100%;
+  border-bottom: 0.3rem solid #2cbf96;
+}
+
+.todo__output ul li:hover span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* //////////////////////////////////////////////////////////// */
+/* FINISH ELEMENT */
+.todo__element {
+  position: relative;
+}
+
+.line-trough {
+  color: #ccc;
+}
+
+.todo__element::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleX(0);
+  height: 2px;
+  width: 1%;
+  background-color: #2cbf96;
+  transition: width 0.4s, color 0.4s;
+}
+
+.line-trough.todo__element::before {
+  transform: translate(-50%, -50%) scaleX(1);
+  width: 100%;
+}
