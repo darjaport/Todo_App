@@ -232,3 +232,16 @@ input::-webkit-input-placeholder {
   transform: translate(-50%, -50%) scaleX(1);
   width: 100%;
 }
+
+/* ------------------------------------------------ */
+/* --- MEDIA QUERIES --- */
+@media only screen and (max-width: 600px) {
+  .todo__output ul li {
+    width: 100%;
+  }
+
+  .todo__output ul li span {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
